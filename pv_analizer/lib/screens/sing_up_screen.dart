@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/login_wigdet.dart';
-import 'sing_up_screen.dart';
+import '../widgets/sing_up_widget.dart';
 
-class LoginScreen extends StatelessWidget {
-  static String routeName = '/login';
+class SingUpScreen extends StatelessWidget {
+  static String routeName = '/sing_up';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
+        leading: BackButton(
+          color: Theme.of(context).primaryColor,
+        ),
         title: Text(
           "PVAnalyzer",
           style: TextStyle(
@@ -28,8 +30,10 @@ class LoginScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                LoginWidget("Enter Login ", "Login must be entered"),
-                LoginWidget("Enter Password", "Password must be entered"),
+                SingUpWidget("Email", "Enter Email"),
+                SingUpWidget("text", "Enter Login"),
+                SingUpWidget("text", "Enter Password"),
+                SingUpWidget("text", "Repeat Password"),
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: SizedBox(
@@ -40,38 +44,16 @@ class LoginScreen extends StatelessWidget {
                         primary: Colors.blue[700],
                         elevation: 10,
                         textStyle: TextStyle(
-                          fontSize: 15,
+                          fontSize: 14,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       onPressed: () {},
                       child: Text(
-                        "Sign in",
+                        "Sign up",
                       ),
                     ),
                   ),
-                ),
-                SizedBox(height: 15),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Don't have an account?",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pushNamed(SingUpScreen.routeName);
-                      },
-                      style: ButtonStyle(),
-                      child: Text(
-                        "Sign up",
-                        style: TextStyle(
-                            color: Colors.white,
-                            decoration: TextDecoration.underline),
-                      ),
-                    ),
-                  ],
                 ),
                 SizedBox(
                   height: 15,
@@ -80,17 +62,17 @@ class LoginScreen extends StatelessWidget {
                   margin: EdgeInsets.only(top: 50),
                   child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(15),
-                        child: Text(
-                          'Make your life better',
-                          style: TextStyle(
-                            fontSize: 35,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
+                      // Padding(
+                      //   padding: const EdgeInsets.all(15),
+                      //   child: Text(
+                      //     'Make your life better',
+                      //     style: TextStyle(
+                      //       fontSize: 35,
+                      //       color: Colors.white,
+                      //       fontWeight: FontWeight.bold,
+                      //     ),
+                      //   ),
+                      // ),
                       Container(
                         child: Image.asset(
                           'assets/Icons/thunderbolt.png',
